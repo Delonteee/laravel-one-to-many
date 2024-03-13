@@ -6,6 +6,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\Admin\MainController as AdminMainController;
 
+use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\Admin\TypeController as AdminTypeController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,5 +30,8 @@ Route::prefix('admin')
     Route::get('/dashboard', [AdminMainController::class, 'dashboard'])->name('dashboard');
 
 });
+
+
+Route::resource('types', AdminTypeController::class);
 
 require __DIR__.'/auth.php';
